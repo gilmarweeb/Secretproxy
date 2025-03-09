@@ -17,8 +17,8 @@ echo -e "${VERDE}
 ${RESET}"
 
 # Variáveis do sistema
-DOMINIO="seu-iptv.duckdns.org"  # <<<< ALTERE ISSO PARA SEU DOMÍNIO
-TOKEN_DUCKDNS="seu_token_aqui"  # <<<< ALTERE ISSO PARA SEU TOKEN
+DOMINIO="rei.duckdns.org"  # <<<< ALTERE ISSO PARA SEU DOMÍNIO
+TOKEN_DUCKDNS="3f065986-bac6-4325-9351-779d32ff0274"  # <<<< ALTERE ISSO PARA SEU TOKEN
 PORTA_PROXY=3128
 DIR_TEMP="/tmp/proxy_rotativo"
 
@@ -89,6 +89,7 @@ echo "*/10 * * * * root /opt/rotacionar_proxy.sh" > /etc/cron.d/rotacionar_proxy
 # Configuração do firewall
 echo -e "${VERDE}[+] Configurando firewall...${RESET}"
 ufw allow $PORTA_PROXY/tcp &> /dev/null
+ufw deny out 22/tcp &> /dev/null
 ufw deny out 80/tcp &> /dev/null
 ufw deny out 8080/tcp &> /dev/null
 ufw enable &> /dev/null
